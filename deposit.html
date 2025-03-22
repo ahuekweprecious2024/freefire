@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Top up diamonds for your Free Fire account quickly and securely. Get the best deals on Free Fire diamonds today!"
+    />
+    <meta
+      name="keywords"
+      content="Free Fire, Free Fire diamonds, FF diamond top-up, buy diamonds, Free Fire recharge, Garena Free Fire"
+    />
+    <meta name="author" content="Your Website Name" />
+    <meta
+      property="og:title"
+      content="Free Fire Diamond Top-Up - Fast & Secure"
+    />
+    <meta
+      property="og:description"
+      content="Buy Free Fire diamonds at the best rates. Instant delivery and secure payment."
+    />
+    <meta
+      property="og:image"
+      content="https://www.pngmart.com/files/22/Garena-Free-Fire-Logo-PNG-Pic.png"
+    />
+    <meta property="og:url" content="YourWebsiteURL" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Free Fire Diamond Top-Up" />
+    <meta
+      name="twitter:description"
+      content="Top up Free Fire diamonds instantly with secure payments."
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.pngmart.com/files/22/Garena-Free-Fire-Logo-PNG-Pic.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://www.pngmart.com/files/22/Garena-Free-Fire-Logo-PNG-Pic.png"
+    />
+    <title>Free Fire Diamond Top-Up | Fast & Secure</title>
+    <title>Account Deposit | FreeFire</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background: #1a1a1a;
+        color: #fff;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .container {
+        background-color: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        padding: 30px;
+        width: 100%;
+        max-width: 500px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .header h1 {
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 10px;
+        color: #ff6b00;
+      }
+
+      .header p {
+        color: #ccc;
+        font-size: 16px;
+      }
+
+      .bank-details {
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        padding: 25px;
+        margin-bottom: 25px;
+      }
+
+      .bank-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+
+      .bank-icon img {
+        width: 80px;
+        height: 80px;
+        border-radius: 10px;
+        object-fit: cover;
+        background-color: #fff;
+        padding: 10px;
+      }
+
+      .detail-row {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .detail-row:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+      }
+
+      .detail-icon {
+        flex: 0 0 50px;
+        font-size: 22px;
+        color: #ff6b00;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .detail-content {
+        flex: 1;
+      }
+
+      .detail-label {
+        font-size: 14px;
+        color: #aaa;
+        margin-bottom: 5px;
+      }
+
+      .detail-value {
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+      }
+
+      .copy-btn {
+        border: none;
+        color: #ff6b00;
+        padding: 6px 12px;
+        border-radius: 6px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-left: 10px;
+      }
+
+      .copy-btn:hover {
+        background-color: rgba(255, 153, 0, 0.3);
+      }
+
+      .instructions {
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        padding: 20px;
+      }
+
+      .instructions h2 {
+        font-size: 18px;
+        color: #ff6b00;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+      }
+
+      .instructions h2 i {
+        margin-right: 10px;
+      }
+
+      .instructions ol {
+        padding-left: 25px;
+        color: #ddd;
+      }
+
+      .instructions li {
+        margin-bottom: 10px;
+        line-height: 1.6;
+      }
+
+      .success-message {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background-color: rgba(46, 213, 115, 0.9);
+        color: white;
+        padding: 15px 25px;
+        border-radius: 8px;
+        transform: translateY(-100px);
+        opacity: 0;
+        transition: all 0.5s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .success-message.show {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      .contact-support {
+        text-align: center;
+        margin-top: 25px;
+        color: #ccc;
+        font-size: 14px;
+      }
+
+      .contact-support a {
+        color: #ff6b00;
+        text-decoration: none;
+      }
+
+      @media (max-width: 600px) {
+        .container {
+          padding: 20px;
+        }
+
+        .header h1 {
+          font-size: 24px;
+        }
+
+        .detail-value {
+          font-size: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1><i class="fas fa-wallet"></i> Fund Your Account</h1>
+        <p>Make a bank transfer to the account below</p>
+      </div>
+
+      <div class="bank-details">
+        <div class="bank-icon">
+          <img
+            src="https://th.bing.com/th/id/OIP.nmiZuBWxgOIcklE5FeLUHAHaHa?rs=1&pid=ImgDetMain"
+            alt="Bank Logo"
+          />
+        </div>
+
+        <div class="detail-row">
+          <div class="detail-icon">
+            <i class="fas fa-university"></i>
+          </div>
+          <div class="detail-content">
+            <div class="detail-label">Bank Name</div>
+            <div class="detail-value">NOMBANK MFB</div>
+          </div>
+        </div>
+
+        <div class="detail-row">
+          <div class="detail-icon">
+            <i class="fas fa-user"></i>
+          </div>
+          <div class="detail-content">
+            <div class="detail-label">Account Name</div>
+            <div class="detail-value">PRINCE NDOKWU</div>
+          </div>
+        </div>
+
+        <div class="detail-row">
+          <div class="detail-icon">
+            <i class="fas fa-credit-card"></i>
+          </div>
+          <div class="detail-content">
+            <div class="detail-label">Account Number</div>
+            <div class="detail-value">
+              8918814764
+              <button class="copy-btn" onclick="copyToClipboard('8918814764')">
+                <i class="fas fa-copy"></i> Copy
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="instructions">
+        <h2><i class="fas fa-info-circle"></i> How to fund your account</h2>
+        <ol>
+          <li>Log in to your bank app or visit your bank branch</li>
+          <li>Initiate a transfer to the account details provided above</li>
+          <li>Minimum funding is NGN2,000 funding less wont reflect</li>
+          <li>Use your username as reference (optional)</li>
+          <li>
+            Your account will be credited automatically once payment is
+            confirmed
+          </li>
+          <li>
+            If your account is not credited within 30 minutes, please contact
+            support
+          </li>
+        </ol>
+      </div>
+
+      <div class="contact-support">
+        Need help? <a href="contact.html">Contact Support</a>
+      </div>
+    </div>
+
+    <div id="successMessage" class="success-message">
+      <i class="fas fa-check-circle"></i> Account number copied!
+    </div>
+
+    <script>
+      function copyToClipboard(text) {
+        navigator.clipboard.writeText(text).then(function () {
+          const successMessage = document.getElementById("successMessage");
+          successMessage.classList.add("show");
+
+          setTimeout(function () {
+            successMessage.classList.remove("show");
+          }, 2000);
+        });
+      }
+    </script>
+  </body>
+</html>

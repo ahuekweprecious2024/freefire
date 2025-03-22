@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Notification Dashboard</title>
+    <style>
+      :root {
+        --primary: #4361ee;
+        --secondary: #3f37c9;
+        --success: #4cc9f0;
+        --light: #f8f9fa;
+        --dark: #212529;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: #f5f7fa;
+        min-height: 100vh;
+        padding: 2rem;
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .header h1 {
+        color: var(--dark);
+        margin-bottom: 0.5rem;
+      }
+
+      .header p {
+        color: #6c757d;
+      }
+
+      .card {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        padding: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .form-group label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: var(--dark);
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 0.75rem;
+        font-size: 1rem;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        transition: border-color 0.2s;
+      }
+
+      .form-control:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+      }
+
+      textarea.form-control {
+        min-height: 100px;
+        resize: vertical;
+      }
+
+      .priority-selector {
+        display: flex;
+        gap: 1rem;
+        margin-top: 0.5rem;
+      }
+
+      .priority-option {
+        flex: 1;
+        text-align: center;
+        padding: 0.5rem;
+        border: 2px solid #e9ecef;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      .priority-option.selected {
+        border-color: var(--primary);
+        background-color: rgba(67, 97, 238, 0.1);
+      }
+
+      .priority-option:hover {
+        background-color: #f8f9fa;
+      }
+
+      .priority-option[data-priority="high"] {
+        border-left: 4px solid #dc3545;
+      }
+
+      .priority-option[data-priority="medium"] {
+        border-left: 4px solid #fd7e14;
+      }
+
+      .priority-option[data-priority="low"] {
+        border-left: 4px solid #20c997;
+      }
+
+      .btn {
+        display: inline-block;
+        font-weight: 500;
+        text-align: center;
+        vertical-align: middle;
+        user-select: none;
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        border-radius: 4px;
+        transition: all 0.15s ease-in-out;
+        cursor: pointer;
+        border: none;
+      }
+
+      .btn-primary {
+        background-color: var(--primary);
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background-color: var(--secondary);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(67, 97, 238, 0.3);
+      }
+
+      .submit-btn {
+        width: 100%;
+        margin-top: 1rem;
+      }
+
+      .notification-list {
+        margin-top: 2rem;
+      }
+
+      .notification-item {
+        padding: 1rem;
+        border-radius: 6px;
+        background-color: white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+      }
+
+      .notification-priority {
+        width: 6px;
+        align-self: stretch;
+        margin-right: 1rem;
+      }
+
+      .notification-priority.high {
+        background-color: #dc3545;
+      }
+
+      .notification-priority.medium {
+        background-color: #fd7e14;
+      }
+
+      .notification-priority.low {
+        background-color: #20c997;
+      }
+
+      .notification-content {
+        flex: 1;
+      }
+
+      .notification-title {
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+      }
+
+      .notification-date {
+        color: #6c757d;
+        font-size: 0.85rem;
+      }
+
+      .notification-message {
+        margin-top: 0.5rem;
+        font-size: 0.95rem;
+        color: #495057;
+      }
+
+      .status-message {
+        text-align: center;
+        padding: 1rem;
+        border-radius: 4px;
+        margin-bottom: 1rem;
+        font-weight: 500;
+        display: none;
+      }
+
+      .success-message {
+        background-color: rgba(32, 201, 151, 0.2);
+        color: #198754;
+      }
+
+      .error-message {
+        background-color: rgba(220, 53, 69, 0.2);
+        color: #dc3545;
+      }
+
+      @media (max-width: 768px) {
+        body {
+          padding: 1rem;
+        }
+
+        .card {
+          padding: 1.5rem;
+        }
+
+        .priority-selector {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Admin Notification Dashboard</h1>
+        <p>Create and manage notifications for your users</p>
+      </div>
+
+      <div class="card">
+        <div id="statusMessage" class="status-message"></div>
+
+        <form id="notificationForm">
+          <div class="form-group">
+            <label for="notificationTitle">Notification Title</label>
+            <input
+              type="text"
+              id="notificationTitle"
+              class="form-control"
+              placeholder="Enter notification title"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="notificationMessage">Notification Message</label>
+            <textarea
+              id="notificationMessage"
+              class="form-control"
+              placeholder="Enter notification message"
+              required
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="prioritySelector">Priority Level</label>
+            <div id="prioritySelector" class="priority-selector">
+              <div class="priority-option" data-priority="high">
+                <h4>High</h4>
+                <p>Urgent attention required</p>
+              </div>
+              <div class="priority-option selected" data-priority="medium">
+                <h4>Medium</h4>
+                <p>Standard priority</p>
+              </div>
+              <div class="priority-option" data-priority="low">
+                <h4>Low</h4>
+                <p>For information only</p>
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary submit-btn">
+            Send Notification
+          </button>
+        </form>
+      </div>
+
+      <div class="card">
+        <h2>Recent Notifications</h2>
+        <div id="notificationsList" class="notification-list">
+          <!-- Notifications will be displayed here -->
+          <div class="notification-item">
+            <div class="notification-priority high"></div>
+            <div class="notification-content">
+              <div class="notification-title">Loading notifications...</div>
+              <div class="notification-date">Please wait</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/10.7.0/firebase-app-compat.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/10.7.0/firebase-database-compat.min.js"></script>
+
+    <script>
+      // Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyDJP2XIR51qGTLINiKvEoscYTMt11CaZ5s",
+        authDomain: "paytrust-71e30.firebaseapp.com",
+        databaseURL: "https://paytrust-71e30-default-rtdb.firebaseio.com/",
+        projectId: "paytrust-71e30",
+        storageBucket: "paytrust-71e30.appspot.com",
+        messagingSenderId: "492609516838",
+        appId: "1:492609516838:android:5a924ad3b7e8e508fa3de7",
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      const database = firebase.database();
+
+      // DOM Elements
+      const notificationForm = document.getElementById("notificationForm");
+      const notificationTitle = document.getElementById("notificationTitle");
+      const notificationMessage = document.getElementById(
+        "notificationMessage"
+      );
+      const prioritySelector = document.getElementById("prioritySelector");
+      const priorityOptions = document.querySelectorAll(".priority-option");
+      const statusMessage = document.getElementById("statusMessage");
+      const notificationsList = document.getElementById("notificationsList");
+
+      // Default priority
+      let selectedPriority = "medium";
+
+      // Priority selection
+      priorityOptions.forEach((option) => {
+        option.addEventListener("click", () => {
+          // Remove selected class from all options
+          priorityOptions.forEach((opt) => opt.classList.remove("selected"));
+          // Add selected class to clicked option
+          option.classList.add("selected");
+          // Update selected priority
+          selectedPriority = option.getAttribute("data-priority");
+        });
+      });
+
+      // Form submission
+      notificationForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const title = notificationTitle.value.trim();
+        const message = notificationMessage.value.trim();
+
+        if (!title || !message) {
+          showStatus("Please fill in all fields", "error");
+          return;
+        }
+
+        // Create notification object
+        const notification = {
+          title: title,
+          message: message,
+          priority: selectedPriority,
+          timestamp: Date.now(),
+          date: new Date().toISOString(),
+        };
+
+        // Push notification to Firebase
+        const newNotificationRef = database.ref("notifications").push();
+        newNotificationRef
+          .set(notification)
+          .then(() => {
+            showStatus("Notification sent successfully!", "success");
+            notificationForm.reset();
+            // Reset priority selection
+            priorityOptions.forEach((opt) => opt.classList.remove("selected"));
+            document
+              .querySelector('[data-priority="medium"]')
+              .classList.add("selected");
+            selectedPriority = "medium";
+          })
+          .catch((error) => {
+            showStatus("Error sending notification: " + error.message, "error");
+            console.error("Error sending notification:", error);
+          });
+      });
+
+      // Display status message
+      function showStatus(message, type) {
+        statusMessage.textContent = message;
+        statusMessage.className = "status-message";
+        statusMessage.classList.add(
+          type === "success" ? "success-message" : "error-message"
+        );
+        statusMessage.style.display = "block";
+
+        // Auto hide after 5 seconds
+        setTimeout(() => {
+          statusMessage.style.display = "none";
+        }, 5000);
+      }
+
+      // Load and display notifications
+      function loadNotifications() {
+        database
+          .ref("notifications")
+          .orderByChild("timestamp")
+          .limitToLast(10)
+          .on(
+            "value",
+            (snapshot) => {
+              notificationsList.innerHTML = "";
+
+              if (snapshot.exists()) {
+                // Convert to array and reverse to show newest first
+                const notifications = [];
+                snapshot.forEach((childSnapshot) => {
+                  const notification = childSnapshot.val();
+                  notification.id = childSnapshot.key;
+                  notifications.push(notification);
+                });
+
+                notifications.reverse().forEach((notification) => {
+                  displayNotification(notification);
+                });
+              } else {
+                notificationsList.innerHTML = `
+                        <div class="notification-item">
+                            <div class="notification-content">
+                                <div class="notification-title">No notifications yet</div>
+                                <div class="notification-message">Create your first notification above</div>
+                            </div>
+                        </div>
+                    `;
+              }
+            },
+            (error) => {
+              console.error("Error loading notifications:", error);
+              notificationsList.innerHTML = `
+                    <div class="notification-item">
+                        <div class="notification-content">
+                            <div class="notification-title">Error loading notifications</div>
+                            <div class="notification-message">${error.message}</div>
+                        </div>
+                    </div>
+                `;
+            }
+          );
+      }
+
+      // Display a notification in the list
+      function displayNotification(notification) {
+        const date = new Date(notification.timestamp);
+        const formattedDate = date.toLocaleString();
+
+        const notificationItem = document.createElement("div");
+        notificationItem.className = "notification-item";
+
+        notificationItem.innerHTML = `
+                <div class="notification-priority ${notification.priority}"></div>
+                <div class="notification-content">
+                    <div class="notification-title">${notification.title}</div>
+                    <div class="notification-date">${formattedDate}</div>
+                    <div class="notification-message">${notification.message}</div>
+                </div>
+            `;
+
+        notificationsList.appendChild(notificationItem);
+      }
+
+      // Load notifications on page load
+      document.addEventListener("DOMContentLoaded", loadNotifications);
+    </script>
+  </body>
+</html>

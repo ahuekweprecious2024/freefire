@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Top up diamonds for your Free Fire account quickly and securely. Get the best deals on Free Fire diamonds today!"
+    />
+    <meta
+      name="keywords"
+      content="Free Fire, Free Fire diamonds, FF diamond top-up, buy diamonds, Free Fire recharge, Garena Free Fire"
+    />
+    <meta name="author" content="Freefire Diamond" />
+    <meta
+      property="og:title"
+      content="Free Fire Diamond Top-Up - Fast & Secure"
+    />
+    <meta
+      property="og:description"
+      content="Buy Free Fire diamonds at the best rates. Instant delivery and secure payment."
+    />
+    <meta
+      property="og:image"
+      content="https://www.pngmart.com/files/22/Garena-Free-Fire-Logo-PNG-Pic.png"
+    />
+    <meta property="og:url" content="YourWebsiteURL" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Free Fire Diamond Top-Up" />
+    <meta
+      name="twitter:description"
+      content="Top up Free Fire diamonds instantly with secure payments."
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.pngmart.com/files/22/Garena-Free-Fire-Logo-PNG-Pic.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://www.pngmart.com/files/22/Garena-Free-Fire-Logo-PNG-Pic.png"
+    />
+    <title>Free Fire Diamond Top-Up | Fast & Secure</title>
+    <title>Notifications Center</title>
+    <style>
+      :root {
+        --primary: #6366f1;
+        --primary-light: #818cf8;
+        --primary-dark: #4f46e5;
+        --success: #10b981;
+        --warning: #f59e0b;
+        --danger: #ef4444;
+        --gray-100: #f3f4f6;
+        --gray-200: #e5e7eb;
+        --gray-300: #d1d5db;
+        --gray-400: #9ca3af;
+        --gray-500: #6b7280;
+        --gray-600: #4b5563;
+        --gray-700: #374151;
+        --gray-800: #1f2937;
+        --gray-900: #111827;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+          sans-serif;
+      }
+
+      body {
+        background-color: #f9fafb;
+        color: var(--gray-800);
+        line-height: 1.5;
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+      }
+
+      .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--gray-200);
+      }
+
+      .header-title h1 {
+        font-weight: 700;
+        font-size: 1.875rem;
+        color: var(--gray-900);
+        margin-bottom: 0.5rem;
+      }
+
+      .header-title p {
+        color: var(--gray-500);
+        font-size: 1rem;
+      }
+
+      .notification-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--primary);
+        color: white;
+        font-weight: 600;
+        min-width: 2rem;
+        height: 2rem;
+        padding: 0 0.5rem;
+        border-radius: 9999px;
+        font-size: 0.875rem;
+      }
+
+      .tabs {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+        border-bottom: 1px solid var(--gray-200);
+      }
+
+      .tab {
+        padding: 0.75rem 1.25rem;
+        font-weight: 500;
+        color: var(--gray-600);
+        cursor: pointer;
+        border-bottom: 2px solid transparent;
+        transition: all 0.2s ease;
+      }
+
+      .tab:hover {
+        color: var(--primary);
+      }
+
+      .tab.active {
+        color: var(--primary-dark);
+        border-bottom-color: var(--primary);
+      }
+
+      .notification-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .notification-card {
+        background-color: white;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        position: relative;
+      }
+
+      .notification-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
+
+      .notification-priority-indicator {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 6px;
+      }
+
+      .priority-high {
+        background-color: var(--danger);
+      }
+
+      .priority-medium {
+        background-color: var(--warning);
+      }
+
+      .priority-low {
+        background-color: var(--success);
+      }
+
+      .notification-content {
+        padding: 1.5rem;
+        padding-top: 2rem;
+      }
+
+      .notification-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 1rem;
+      }
+
+      .notification-title {
+        font-weight: 600;
+        font-size: 1.125rem;
+        color: var(--gray-900);
+        margin-right: 0.5rem;
+      }
+
+      .notification-badge-container {
+        margin-top: 0.2rem;
+      }
+
+      .notification-priority-badge {
+        display: inline-block;
+        padding: 0.25rem 0.5rem;
+        border-radius: 9999px;
+        font-size: 0.75rem;
+        font-weight: 500;
+        text-transform: uppercase;
+      }
+
+      .badge-high {
+        background-color: rgba(239, 68, 68, 0.1);
+        color: var(--danger);
+      }
+
+      .badge-medium {
+        background-color: rgba(245, 158, 11, 0.1);
+        color: var(--warning);
+      }
+
+      .badge-low {
+        background-color: rgba(16, 185, 129, 0.1);
+        color: var(--success);
+      }
+
+      .notification-message {
+        color: var(--gray-700);
+        margin-bottom: 1rem;
+        font-size: 0.9375rem;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+      }
+
+      .notification-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: var(--gray-500);
+        font-size: 0.875rem;
+        margin-top: 1.5rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--gray-200);
+      }
+
+      .notification-date {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+      }
+
+      .notification-date svg {
+        width: 0.875rem;
+        height: 0.875rem;
+      }
+
+      .notification-actions {
+        display: flex;
+        gap: 0.5rem;
+      }
+
+      .action-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--gray-500);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.25rem;
+        border-radius: 0.25rem;
+        transition: all 0.2s ease;
+      }
+
+      .action-btn:hover {
+        background-color: var(--gray-100);
+        color: var(--primary);
+      }
+
+      .action-btn svg {
+        width: 1rem;
+        height: 1rem;
+      }
+
+      .empty-state {
+        text-align: center;
+        padding: 3rem 1rem;
+        background-color: white;
+        border-radius: 0.5rem;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+          0 1px 2px 0 rgba(0, 0, 0, 0.06);
+      }
+
+      .empty-state-icon {
+        background-color: var(--gray-100);
+        width: 5rem;
+        height: 5rem;
+        border-radius: 9999px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+      }
+
+      .empty-state-icon svg {
+        width: 2.5rem;
+        height: 2.5rem;
+        color: var(--gray-400);
+      }
+
+      .empty-state-title {
+        font-weight: 600;
+        font-size: 1.25rem;
+        color: var(--gray-900);
+        margin-bottom: 0.5rem;
+      }
+
+      .empty-state-description {
+        color: var(--gray-500);
+        max-width: 30rem;
+        margin: 0 auto;
+      }
+
+      .skeleton-loading {
+        animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        background-color: var(--gray-200);
+        border-radius: 0.25rem;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.5;
+        }
+      }
+
+      .skeleton-card {
+        background-color: white;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+          0 1px 2px 0 rgba(0, 0, 0, 0.06);
+        padding: 1.5rem;
+      }
+
+      .skeleton-title {
+        height: 1.25rem;
+        width: 70%;
+        margin-bottom: 1rem;
+      }
+
+      .skeleton-text {
+        height: 1rem;
+        margin-bottom: 0.5rem;
+      }
+
+      @media (max-width: 640px) {
+        .notification-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <div class="header-title">
+          <h1>Notifications</h1>
+          <p>Stay updated with our latest announcements</p>
+        </div>
+        <div class="notification-badge" id="notificationCount">0</div>
+      </header>
+
+      <div class="tabs">
+        <div class="tab active" data-filter="all">All Notifications</div>
+        <div class="tab" data-filter="high">High Priority</div>
+        <div class="tab" data-filter="medium">Medium Priority</div>
+        <div class="tab" data-filter="low">Low Priority</div>
+      </div>
+
+      <div id="notificationContainer" class="notification-grid">
+        <!-- Skeleton loading cards -->
+        <div class="skeleton-card">
+          <div class="skeleton-title skeleton-loading"></div>
+          <div class="skeleton-text skeleton-loading" style="width: 90%"></div>
+          <div class="skeleton-text skeleton-loading" style="width: 95%"></div>
+          <div class="skeleton-text skeleton-loading" style="width: 80%"></div>
+        </div>
+        <div class="skeleton-card">
+          <div class="skeleton-title skeleton-loading"></div>
+          <div class="skeleton-text skeleton-loading" style="width: 90%"></div>
+          <div class="skeleton-text skeleton-loading" style="width: 95%"></div>
+          <div class="skeleton-text skeleton-loading" style="width: 80%"></div>
+        </div>
+        <div class="skeleton-card">
+          <div class="skeleton-title skeleton-loading"></div>
+          <div class="skeleton-text skeleton-loading" style="width: 90%"></div>
+          <div class="skeleton-text skeleton-loading" style="width: 95%"></div>
+          <div class="skeleton-text skeleton-loading" style="width: 80%"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/10.7.0/firebase-app-compat.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/10.7.0/firebase-database-compat.min.js"></script>
+
+    <script>
+      // Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyDJP2XIR51qGTLINiKvEoscYTMt11CaZ5s",
+        authDomain: "paytrust-71e30.firebaseapp.com",
+        databaseURL: "https://paytrust-71e30-default-rtdb.firebaseio.com/",
+        projectId: "paytrust-71e30",
+        storageBucket: "paytrust-71e30.appspot.com",
+        messagingSenderId: "492609516838",
+        appId: "1:492609516838:android:5a924ad3b7e8e508fa3de7",
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      const database = firebase.database();
+
+      // DOM Elements
+      const notificationContainer = document.getElementById(
+        "notificationContainer"
+      );
+      const notificationCount = document.getElementById("notificationCount");
+      const tabs = document.querySelectorAll(".tab");
+
+      // Current filter
+      let currentFilter = "all";
+
+      // Handle tab clicks
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          // Update active tab
+          tabs.forEach((t) => t.classList.remove("active"));
+          tab.classList.add("active");
+
+          // Update filter
+          currentFilter = tab.getAttribute("data-filter");
+
+          // Reload notifications with filter
+          loadNotifications();
+        });
+      });
+
+      // Format date function
+      function formatDate(timestamp) {
+        const date = new Date(timestamp);
+        return (
+          date.toLocaleDateString() +
+          " at " +
+          date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })
+        );
+      }
+
+      // Time ago function
+      function timeAgo(timestamp) {
+        const seconds = Math.floor((new Date() - timestamp) / 1000);
+
+        let interval = Math.floor(seconds / 31536000);
+        if (interval >= 1) {
+          return interval + " year" + (interval === 1 ? "" : "s") + " ago";
+        }
+
+        interval = Math.floor(seconds / 2592000);
+        if (interval >= 1) {
+          return interval + " month" + (interval === 1 ? "" : "s") + " ago";
+        }
+
+        interval = Math.floor(seconds / 86400);
+        if (interval >= 1) {
+          return interval + " day" + (interval === 1 ? "" : "s") + " ago";
+        }
+
+        interval = Math.floor(seconds / 3600);
+        if (interval >= 1) {
+          return interval + " hour" + (interval === 1 ? "" : "s") + " ago";
+        }
+
+        interval = Math.floor(seconds / 60);
+        if (interval >= 1) {
+          return interval + " minute" + (interval === 1 ? "" : "s") + " ago";
+        }
+
+        return "just now";
+      }
+
+      // Load notifications from Firebase
+      function loadNotifications() {
+        database
+          .ref("notifications")
+          .orderByChild("timestamp")
+          .on("value", (snapshot) => {
+            // Clear the container
+            notificationContainer.innerHTML = "";
+
+            if (snapshot.exists()) {
+              // Convert to array and reverse to show newest first
+              const notifications = [];
+              snapshot.forEach((childSnapshot) => {
+                const notification = childSnapshot.val();
+                notification.id = childSnapshot.key;
+                notifications.push(notification);
+              });
+
+              // Filter notifications if needed
+              const filteredNotifications =
+                currentFilter === "all"
+                  ? notifications
+                  : notifications.filter((n) => n.priority === currentFilter);
+
+              // Update notification count
+              notificationCount.textContent = filteredNotifications.length;
+
+              // Display notifications
+              if (filteredNotifications.length > 0) {
+                filteredNotifications.reverse().forEach((notification) => {
+                  const notificationElement = document.createElement("div");
+                  notificationElement.classList.add("notification-card");
+
+                  // Priority Indicator
+                  const priorityClass =
+                    notification.priority === "high"
+                      ? "priority-high"
+                      : notification.priority === "medium"
+                      ? "priority-medium"
+                      : "priority-low";
+
+                  notificationElement.innerHTML = `
+                        <div class="notification-priority-indicator ${priorityClass}"></div>
+                        <div class="notification-content">
+                            <div class="notification-header">
+                                <div class="notification-title">${
+                                  notification.title
+                                }</div>
+                                <div class="notification-badge-container">
+                                    <span class="notification-priority-badge badge-${
+                                      notification.priority
+                                    }">
+                                        ${
+                                          notification.priority
+                                            .charAt(0)
+                                            .toUpperCase() +
+                                          notification.priority.slice(1)
+                                        }
+                                    </span>
+                                </div>
+                            </div>
+                            <p class="notification-message">${
+                              notification.message
+                            }</p>
+                            <div class="notification-footer">
+                                <div class="notification-date">
+                                    <svg viewBox="0 0 20 20" fill="currentColor" class="clock w-5 h-5">
+                                        <path fill-rule="evenodd" d="M10 2a8 8 0 1 1-8 8 8 8 0 0 1 8-8Zm0 14a6 6 0 1 0 0-12 6 6 0 0 0 0 12ZM9 5a1 1 0 1 1 2 0v4.586l2.293 2.293a1 1 0 1 1-1.414 1.414L9 10.414V5Z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <span>${timeAgo(
+                                      notification.timestamp
+                                    )}</span>
+                                </div>
+                                <div class="notification-actions">
+                                    <button class="action-btn" onclick="deleteNotification('${
+                                      notification.id
+                                    }')">
+                                        <svg viewBox="0 0 20 20" fill="currentColor" class="trash w-5 h-5">
+                                            <path fill-rule="evenodd" d="M6 2a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v1h4a1 1 0 1 1 0 2h-1v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5H2a1 1 0 1 1 0-2h4V2Zm2 2v10h2V4H8Zm4 0v10h2V4h-2Z" clip-rule="evenodd"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                  notificationContainer.appendChild(notificationElement);
+                });
+              } else {
+                notificationContainer.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">
+                            <svg viewBox="0 0 20 20" fill="currentColor" class="bell w-5 h-5">
+                                <path fill-rule="evenodd" d="M10 2a6 6 0 0 1 6 6v3.586l1.707 1.707a1 1 0 0 1-1.414 1.414L14 13.414V8a4 4 0 1 0-8 0v5.414l-2.293 2.293a1 1 0 0 1-1.414-1.414L4 11.586V8a6 6 0 0 1 6-6Zm-1 14a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <h3 class="empty-state-title">No Notifications</h3>
+                        <p class="empty-state-description">You have no notifications in this category.</p>
+                    </div>
+                `;
+              }
+            } else {
+              // Handle case when snapshot doesn't exist
+              notificationContainer.innerHTML = `
+                <div class="empty-state">
+                    <div class="empty-state-icon">
+                        <svg viewBox="0 0 20 20" fill="currentColor" class="bell w-5 h-5">
+                            <path fill-rule="evenodd" d="M10 2a6 6 0 0 1 6 6v3.586l1.707 1.707a1 1 0 0 1-1.414 1.414L14 13.414V8a4 4 0 1 0-8 0v5.414l-2.293 2.293a1 1 0 0 1-1.414-1.414L4 11.586V8a6 6 0 0 1 6-6Zm-1 14a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <h3 class="empty-state-title">No Notifications</h3>
+                    <p class="empty-state-description">You have no notifications yet.</p>
+                </div>
+            `;
+              notificationCount.textContent = "0";
+            }
+          });
+      }
+
+      // Function to delete a notification
+      function deleteNotification(notificationId) {
+        database.ref(`notifications/${notificationId}`).remove();
+      }
+
+      // Load notifications initially
+      loadNotifications();
+    </script>
+  </body>
+</html>
