@@ -1,0 +1,1835 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Global Scholars Program - Education Without Borders</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: #2563eb;
+        --primary-dark: #1d4ed8;
+        --secondary: #f59e0b;
+        --dark: #1e293b;
+        --light: #f8fafc;
+        --success: #10b981;
+        --error: #ef4444;
+        --gray: #64748b;
+        --gray-light: #e2e8f0;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #f1f5f9;
+        color: var(--dark);
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      header {
+        background: linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-dark)
+        );
+        color: white;
+        padding: 1rem 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-family: "Playfair Display", serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+      }
+
+      .logo i {
+        margin-right: 10px;
+        color: var(--secondary);
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+      }
+
+      nav ul li {
+        margin-left: 2rem;
+      }
+
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      nav ul li a:hover {
+        color: var(--secondary);
+      }
+
+      nav ul li a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        background: var(--secondary);
+        bottom: -5px;
+        left: 0;
+        transition: width 0.3s ease;
+      }
+
+      nav ul li a:hover::after {
+        width: 100%;
+      }
+
+      .hero {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+          url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80");
+        background-size: cover;
+        background-position: center;
+        height: 80vh;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        color: white;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          135deg,
+          rgba(37, 99, 235, 0.8),
+          rgba(245, 158, 11, 0.6)
+        );
+        z-index: 0;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 20px;
+        animation: fadeInUp 1s ease;
+      }
+
+      .hero h1 {
+        font-family: "Playfair Display", serif;
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+      }
+
+      .btn {
+        display: inline-block;
+        background-color: var(--secondary);
+        color: white;
+        padding: 0.8rem 2rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        font-size: 1rem;
+      }
+
+      .btn:hover {
+        background-color: #e69009;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .btn-primary {
+        background-color: var(--primary);
+      }
+
+      .btn-primary:hover {
+        background-color: var(--primary-dark);
+      }
+
+      .btn-outline {
+        background-color: transparent;
+        border: 2px solid white;
+        margin-left: 1rem;
+      }
+
+      .btn-outline:hover {
+        background-color: white;
+        color: var(--primary);
+      }
+
+      section {
+        padding: 5rem 0;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 3rem;
+        position: relative;
+      }
+
+      .section-title h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .section-title p {
+        color: var(--gray);
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .section-title::after {
+        content: "";
+        display: block;
+        width: 80px;
+        height: 4px;
+        background: var(--secondary);
+        margin: 1rem auto;
+        border-radius: 2px;
+      }
+
+      .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .feature-card {
+        background-color: white;
+        border-radius: 10px;
+        padding: 2rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        text-align: center;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .feature-icon {
+        font-size: 3rem;
+        color: var(--primary);
+        margin-bottom: 1.5rem;
+      }
+
+      .feature-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .feature-card p {
+        color: var(--gray);
+      }
+
+      .about {
+        background-color: white;
+      }
+
+      .about-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: center;
+      }
+
+      .about-image img {
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        animation: float 3s ease-in-out infinite;
+      }
+
+      .about-text h3 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        color: var(--primary);
+      }
+
+      .about-text p {
+        margin-bottom: 1.5rem;
+        color: var(--gray);
+      }
+
+      .scholarship-form {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        padding: 3rem;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+      }
+
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        padding: 0.8rem 1rem;
+        border: 1px solid var(--gray-light);
+        border-radius: 5px;
+        font-family: "Poppins", sans-serif;
+        transition: all 0.3s ease;
+      }
+
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+      }
+
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+      }
+
+      .required-field::after {
+        content: "*";
+        color: var(--error);
+        margin-left: 4px;
+      }
+
+      .upload-area {
+        border: 2px dashed var(--gray-light);
+        border-radius: 5px;
+        padding: 2rem;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-bottom: 1rem;
+      }
+
+      .upload-area:hover {
+        border-color: var(--primary);
+      }
+
+      .upload-area i {
+        font-size: 2rem;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .upload-area p {
+        color: var(--gray);
+      }
+
+      .file-input {
+        display: none;
+      }
+
+      .file-list {
+        margin-top: 1rem;
+      }
+
+      .file-item {
+        display: flex;
+        align-items: center;
+        background-color: var(--gray-light);
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        margin-bottom: 0.5rem;
+      }
+
+      .file-item i {
+        margin-right: 0.5rem;
+        color: var(--primary);
+      }
+
+      .file-item .file-name {
+        flex-grow: 1;
+      }
+
+      .file-item .file-remove {
+        color: var(--error);
+        cursor: pointer;
+      }
+
+      .progress-container {
+        margin-top: 2rem;
+        display: none;
+      }
+
+      .progress-steps {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        margin-bottom: 2rem;
+      }
+
+      .progress-steps::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background-color: var(--gray-light);
+        z-index: 1;
+      }
+
+      .progress-bar {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        height: 2px;
+        background-color: var(--primary);
+        z-index: 2;
+        transition: width 0.3s ease;
+      }
+
+      .step {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: var(--gray-light);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--gray);
+        font-weight: 600;
+        position: relative;
+        z-index: 3;
+        transition: all 0.3s ease;
+      }
+
+      .step.active {
+        background-color: var(--primary);
+        color: white;
+      }
+
+      .step.completed {
+        background-color: var(--success);
+        color: white;
+      }
+
+      .step-label {
+        position: absolute;
+        top: 45px;
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap;
+        font-size: 0.8rem;
+        color: var(--gray);
+      }
+
+      .step.active .step-label,
+      .step.completed .step-label {
+        color: var(--dark);
+        font-weight: 500;
+      }
+
+      .form-step {
+        display: none;
+        animation: fadeIn 0.5s ease;
+      }
+
+      .form-step.active {
+        display: block;
+      }
+
+      .form-actions {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 2rem;
+      }
+
+      .payment-section {
+        display: none;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        padding: 3rem;
+        max-width: 800px;
+        margin: 2rem auto;
+        animation: fadeIn 0.5s ease;
+      }
+
+      .payment-section.active {
+        display: block;
+      }
+
+      .payment-methods {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .payment-method {
+        background-color: var(--light);
+        border-radius: 10px;
+        padding: 2rem;
+        text-align: center;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        border: 2px solid transparent;
+      }
+
+      .payment-method:hover {
+        border-color: var(--primary);
+      }
+
+      .payment-method.selected {
+        border-color: var(--primary);
+        background-color: rgba(37, 99, 235, 0.05);
+      }
+
+      .payment-method i {
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .payment-method h3 {
+        margin-bottom: 1rem;
+      }
+
+      .payment-method p {
+        color: var(--gray);
+        margin-bottom: 1.5rem;
+      }
+
+      .payment-details {
+        margin-top: 2rem;
+        padding: 2rem;
+        background-color: var(--light);
+        border-radius: 10px;
+        display: none;
+      }
+
+      .payment-details.active {
+        display: block;
+        animation: fadeIn 0.5s ease;
+      }
+
+      .payment-info {
+        background-color: white;
+        padding: 1.5rem;
+        border-radius: 5px;
+        margin-bottom: 1.5rem;
+        position: relative;
+      }
+
+      .payment-info h4 {
+        margin-bottom: 1rem;
+        color: var(--primary);
+      }
+
+      .payment-info p {
+        margin-bottom: 0.5rem;
+        word-break: break-all;
+      }
+
+      .copy-btn {
+        background-color: var(--primary);
+        color: white;
+        border: none;
+        padding: 0.3rem 0.8rem;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 0.8rem;
+        margin-left: 0.5rem;
+        transition: all 0.3s ease;
+      }
+
+      .copy-btn:hover {
+        background-color: var(--primary-dark);
+      }
+
+      .copy-btn i {
+        margin-right: 5px;
+      }
+
+      .upload-receipt {
+        margin-top: 2rem;
+      }
+
+      .upload-receipt label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+      }
+
+      .success-message {
+        text-align: center;
+        padding: 3rem;
+        display: none;
+      }
+
+      .success-message.active {
+        display: block;
+        animation: fadeIn 0.5s ease;
+      }
+
+      .success-icon {
+        font-size: 5rem;
+        color: var(--success);
+        margin-bottom: 2rem;
+        animation: bounce 1s ease;
+      }
+
+      .success-message h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: var(--success);
+      }
+
+      .success-message p {
+        color: var(--gray);
+        margin-bottom: 2rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      footer {
+        background-color: var(--dark);
+        color: white;
+        padding: 3rem 0;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+      }
+
+      .footer-column h3 {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        position: relative;
+        padding-bottom: 0.5rem;
+      }
+
+      .footer-column h3::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 40px;
+        height: 2px;
+        background-color: var(--secondary);
+      }
+
+      .footer-column p {
+        margin-bottom: 1rem;
+        color: var(--gray-light);
+      }
+
+      .footer-column ul {
+        list-style: none;
+      }
+
+      .footer-column ul li {
+        margin-bottom: 0.8rem;
+      }
+
+      .footer-column ul li a {
+        color: var(--gray-light);
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .footer-column ul li a:hover {
+        color: var(--secondary);
+        padding-left: 5px;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .social-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        color: white;
+        transition: all 0.3s ease;
+      }
+
+      .social-links a:hover {
+        background-color: var(--secondary);
+        transform: translateY(-3px);
+      }
+
+      .copyright {
+        text-align: center;
+        padding-top: 2rem;
+        margin-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: var(--gray-light);
+        font-size: 0.9rem;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateY(0);
+        }
+        40% {
+          transform: translateY(-30px);
+        }
+        60% {
+          transform: translateY(-15px);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .header-container {
+          flex-direction: column;
+        }
+
+        nav ul {
+          margin-top: 1rem;
+        }
+
+        nav ul li {
+          margin-left: 1rem;
+          margin-right: 1rem;
+        }
+
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero p {
+          font-size: 1rem;
+        }
+
+        .btn-outline {
+          margin-left: 0;
+          margin-top: 1rem;
+        }
+
+        .about-content {
+          grid-template-columns: 1fr;
+        }
+
+        .about-image {
+          order: -1;
+        }
+
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+
+        .payment-methods {
+          grid-template-columns: 1fr;
+        }
+
+        .section-title h2 {
+          font-size: 2rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero h1 {
+          font-size: 2rem;
+        }
+
+        .scholarship-form,
+        .payment-section {
+          padding: 2rem 1rem;
+        }
+
+        .section-title h2 {
+          font-size: 1.8rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container header-container">
+        <div class="logo">
+          <i class="fas fa-graduation-cap"></i>
+          <span>Global Scholars</span>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#scholarships">Scholarships</a></li>
+            <li><a href="#application">Application</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <h1>Unlock Your Global Education Potential</h1>
+        <p>
+          Apply for our prestigious international scholarship program and get
+          the opportunity to study at top universities worldwide with full
+          financial support.
+        </p>
+        <a href="#application" class="btn btn-primary">Apply Now</a>
+        <a href="#about" class="btn btn-outline">Learn More</a>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="container">
+        <div class="section-title">
+          <h2>Why Choose Our Scholarship</h2>
+          <p>
+            Our program offers comprehensive support to help you achieve your
+            academic dreams without financial constraints.
+          </p>
+        </div>
+        <div class="features">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-globe"></i>
+            </div>
+            <h3>Global Opportunities</h3>
+            <p>
+              Access to over 200 partner universities across 30 countries
+              worldwide with full tuition coverage.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-book-open"></i>
+            </div>
+            <h3>Comprehensive Support</h3>
+            <p>
+              Full tuition coverage, living stipend, health insurance, and
+              travel allowance included.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <h3>Mentorship Network</h3>
+            <p>
+              Connect with alumni mentors and industry leaders to guide your
+              academic and professional journey.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container">
+        <div class="about-content">
+          <div class="about-text">
+            <h3>About the Global Scholars Program</h3>
+            <p>
+              The Global Scholars Program is an initiative dedicated to
+              empowering exceptional students from around the world to pursue
+              higher education at prestigious institutions without financial
+              barriers.
+            </p>
+            <p>
+              Founded in 2010, we have supported over 5,000 scholars across
+              diverse fields of study, creating a global network of
+              change-makers and leaders.
+            </p>
+            <p>
+              Our comprehensive scholarship package covers all essential costs,
+              allowing students to focus entirely on their academic and personal
+              growth during their studies abroad.
+            </p>
+            <a href="#application" class="btn btn-primary">Apply Now</a>
+          </div>
+          <div class="about-image">
+            <img
+              src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+              alt="Students studying together"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="application">
+      <div class="container">
+        <div class="section-title">
+          <h2>Scholarship Application</h2>
+          <p>
+            Complete the following form to apply for the Global Scholars
+            Program. All fields marked with * are required.
+          </p>
+        </div>
+
+        <div class="progress-container" id="progress-container">
+          <div class="progress-steps">
+            <div class="progress-bar" id="progress-bar"></div>
+            <div class="step active" id="step1">
+              <span>1</span>
+              <span class="step-label">Personal Info</span>
+            </div>
+            <div class="step" id="step2">
+              <span>2</span>
+              <span class="step-label">Academic Info</span>
+            </div>
+            <div class="step" id="step3">
+              <span>3</span>
+              <span class="step-label">Documents</span>
+            </div>
+            <div class="step" id="step4">
+              <span>4</span>
+              <span class="step-label">Review</span>
+            </div>
+          </div>
+        </div>
+
+        <form id="scholarshipForm" class="scholarship-form">
+          <div class="form-step active" id="step-1">
+            <h3>Personal Information</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName" class="required-field">First Name</label>
+                <input type="text" id="firstName" name="firstName" required />
+              </div>
+              <div class="form-group">
+                <label for="lastName" class="required-field">Last Name</label>
+                <input type="text" id="lastName" name="lastName" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email" class="required-field">Email Address</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+              <div class="form-group">
+                <label for="phone" class="required-field">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="dob" class="required-field">Date of Birth</label>
+                <input type="date" id="dob" name="dob" required />
+              </div>
+              <div class="form-group">
+                <label for="gender" class="required-field">Gender</label>
+                <select id="gender" name="gender" required>
+                  <option value="">Select Gender</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="other">Other</option>
+                  <option value="prefer-not-to-say">Prefer not to say</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="address" class="required-field">Address</label>
+              <input type="text" id="address" name="address" required />
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="country" class="required-field">Country</label>
+                <select id="country" name="country" required>
+                  <option value="">Select Country</option>
+                  <option value="nigeria">Nigeria</option>
+                  <option value="ghana">Ghana</option>
+                  <option value="kenya">Kenya</option>
+                  <option value="south-africa">South Africa</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="nationality" class="required-field"
+                  >Nationality</label
+                >
+                <input
+                  type="text"
+                  id="nationality"
+                  name="nationality"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-actions">
+              <button type="button" class="btn" id="next-1">Next</button>
+            </div>
+          </div>
+
+          <div class="form-step" id="step-2">
+            <h3>Academic Information</h3>
+            <div class="form-group">
+              <label for="currentEducation" class="required-field"
+                >Current Education Level</label
+              >
+              <select id="currentEducation" name="currentEducation" required>
+                <option value="">Select Education Level</option>
+                <option value="high-school">High School</option>
+                <option value="undergraduate">Undergraduate</option>
+                <option value="graduate">Graduate</option>
+                <option value="phd">PhD</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="institution" class="required-field"
+                >Current/Previous Institution</label
+              >
+              <input type="text" id="institution" name="institution" required />
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fieldOfStudy" class="required-field"
+                  >Field of Study</label
+                >
+                <input
+                  type="text"
+                  id="fieldOfStudy"
+                  name="fieldOfStudy"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="gpa" class="required-field"
+                  >GPA (Scale of 4.0)</label
+                >
+                <input
+                  type="number"
+                  id="gpa"
+                  name="gpa"
+                  step="0.01"
+                  min="0"
+                  max="4"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="programInterest" class="required-field"
+                >Program of Interest</label
+              >
+              <select id="programInterest" name="programInterest" required>
+                <option value="">Select Program</option>
+                <option value="engineering">Engineering</option>
+                <option value="medicine">Medicine</option>
+                <option value="business">Business Administration</option>
+                <option value="computer-science">Computer Science</option>
+                <option value="law">Law</option>
+                <option value="arts">Arts & Humanities</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="degreeLevel" class="required-field"
+                >Desired Degree Level</label
+              >
+              <select id="degreeLevel" name="degreeLevel" required>
+                <option value="">Select Degree Level</option>
+                <option value="bachelors">Bachelor's</option>
+                <option value="masters">Master's</option>
+                <option value="phd">PhD</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="essay" class="required-field"
+                >Personal Statement</label
+              >
+              <textarea
+                id="essay"
+                name="essay"
+                rows="6"
+                required
+                placeholder="Explain why you deserve this scholarship, your academic goals, and how you plan to contribute to your community (500-1000 words)"
+              ></textarea>
+            </div>
+            <div class="form-actions">
+              <button type="button" class="btn" id="prev-2">Previous</button>
+              <button type="button" class="btn btn-primary" id="next-2">
+                Next
+              </button>
+            </div>
+          </div>
+
+          <div class="form-step" id="step-3">
+            <h3>Required Documents</h3>
+            <p>
+              Please upload the following documents in PDF or JPEG format.
+              Maximum file size is 5MB per document.
+            </p>
+
+            <div class="form-group">
+              <label class="required-field">Academic Transcripts</label>
+              <div class="upload-area" id="transcriptUpload">
+                <i class="fas fa-file-pdf"></i>
+                <p>Click to upload your academic transcripts</p>
+                <p>
+                  <small
+                    >Official transcripts from all institutions attended</small
+                  >
+                </p>
+                <input
+                  type="file"
+                  id="transcript"
+                  class="file-input"
+                  accept=".pdf,.jpg,.jpeg,.png"
+                />
+              </div>
+              <div class="file-list" id="transcriptList"></div>
+            </div>
+
+            <div class="form-group">
+              <label class="required-field">Letter of Recommendation</label>
+              <div class="upload-area" id="recommendationUpload">
+                <i class="fas fa-file-alt"></i>
+                <p>Click to upload recommendation letter</p>
+                <p><small>From a professor or academic advisor</small></p>
+                <input
+                  type="file"
+                  id="recommendation"
+                  class="file-input"
+                  accept=".pdf,.jpg,.jpeg,.png"
+                />
+              </div>
+              <div class="file-list" id="recommendationList"></div>
+            </div>
+
+            <div class="form-group">
+              <label class="required-field">Passport or ID</label>
+              <div class="upload-area" id="idUpload">
+                <i class="fas fa-id-card"></i>
+                <p>Click to upload your passport or national ID</p>
+                <p><small>Clear copy of bio-data page</small></p>
+                <input
+                  type="file"
+                  id="id"
+                  class="file-input"
+                  accept=".pdf,.jpg,.jpeg,.png"
+                />
+              </div>
+              <div class="file-list" id="idList"></div>
+            </div>
+
+            <div class="form-group">
+              <label>Additional Documents (Optional)</label>
+              <div class="upload-area" id="additionalUpload">
+                <i class="fas fa-file-upload"></i>
+                <p>Click to upload additional documents</p>
+                <p>
+                  <small
+                    >Certificates, awards, or other supporting materials</small
+                  >
+                </p>
+                <input
+                  type="file"
+                  id="additional"
+                  class="file-input"
+                  multiple
+                  accept=".pdf,.jpg,.jpeg,.png"
+                />
+              </div>
+              <div class="file-list" id="additionalList"></div>
+            </div>
+
+            <div class="form-actions">
+              <button type="button" class="btn" id="prev-3">Previous</button>
+              <button type="button" class="btn btn-primary" id="next-3">
+                Next
+              </button>
+            </div>
+          </div>
+
+          <div class="form-step" id="step-4">
+            <h3>Review Your Application</h3>
+            <p>
+              Please review all the information you've provided before
+              submitting your application.
+            </p>
+
+            <div class="form-group">
+              <h4>Personal Information</h4>
+              <div id="review-personal"></div>
+            </div>
+
+            <div class="form-group">
+              <h4>Academic Information</h4>
+              <div id="review-academic"></div>
+            </div>
+
+            <div class="form-group">
+              <h4>Uploaded Documents</h4>
+              <div id="review-documents"></div>
+            </div>
+
+            <div class="form-group">
+              <input
+                type="checkbox"
+                id="agreeTerms"
+                name="agreeTerms"
+                required
+              />
+              <label for="agreeTerms" class="required-field"
+                >I certify that all information provided is accurate and
+                complete to the best of my knowledge.</label
+              >
+            </div>
+
+            <div class="form-actions">
+              <button type="button" class="btn" id="prev-4">Previous</button>
+              <button type="button" class="btn btn-primary" id="submit-form">
+                Submit Application
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <div class="payment-section" id="payment-section">
+          <h3>SEVIS Fee Reimbursement Payment</h3>
+          <p>
+            To complete your application, please make the SEVIS fee
+            reimbursement payment of <strong>$31</strong>. This fee covers the
+            Student and Exchange Visitor Information System (SEVIS) processing
+            required for your visa application.
+          </p>
+          <p>
+            SEVIS is the Web-based system that the U.S. Department of Homeland
+            Security (DHS) uses to maintain information on F and M visa holders
+            in the United States.
+          </p>
+
+          <div class="payment-methods">
+            <div class="payment-method" id="crypto-method">
+              <i class="fab fa-bitcoin"></i>
+              <h3>Crypto Payment</h3>
+              <p>Pay using USDT (TRC20 network)</p>
+              <p>Fast and secure cryptocurrency payment</p>
+            </div>
+            <div class="payment-method" id="bank-method">
+              <i class="fas fa-university"></i>
+              <h3>Bank Transfer</h3>
+              <p>Pay via bank transfer in NGN</p>
+              <p>Direct transfer to our Nigerian account</p>
+            </div>
+          </div>
+
+          <div class="payment-details" id="crypto-details">
+            <div class="payment-info">
+              <h4>USDT (TRC20) Payment Details</h4>
+              <p>Send exactly <strong>31 USDT</strong> to:</p>
+              <p>
+                Wallet Address:
+                <span id="wallet-address"
+                  >TMUDuZzsL7AQ578D3dHGr5vEVXyB2c7XWz</span
+                >
+                <button
+                  class="copy-btn"
+                  onclick="copyToClipboard('wallet-address')"
+                >
+                  <i class="fas fa-copy"></i>Copy
+                </button>
+              </p>
+              <p>Network: <strong>Tron (TRC20)</strong></p>
+              <p>
+                <strong>Important:</strong> Ensure you select TRC20 network when
+                sending. Sending via wrong network may result in loss of funds.
+              </p>
+            </div>
+            <div class="upload-receipt">
+              <label for="crypto-receipt" class="required-field"
+                >Upload Payment Receipt</label
+              >
+              <div class="upload-area" id="cryptoReceiptUpload">
+                <i class="fas fa-file-invoice-dollar"></i>
+                <p>Click to upload your transaction receipt</p>
+                <p>
+                  <small>Screenshot or PDF of your crypto transaction</small>
+                </p>
+                <input
+                  type="file"
+                  id="crypto-receipt"
+                  class="file-input"
+                  accept=".pdf,.jpg,.jpeg,.png"
+                />
+              </div>
+              <div class="file-list" id="cryptoReceiptList"></div>
+            </div>
+            <button type="button" class="btn btn-primary" id="submit-crypto">
+              Confirm Payment
+            </button>
+          </div>
+
+          <div class="payment-details" id="bank-details">
+            <div class="payment-info">
+              <h4>Bank Transfer Details</h4>
+              <p>Send exactly <strong>50,000 NGN</strong> to:</p>
+              <p>
+                Account Number: <span id="account-number">2389902652</span>
+                <button
+                  class="copy-btn"
+                  onclick="copyToClipboard('account-number')"
+                >
+                  <i class="fas fa-copy"></i>Copy
+                </button>
+              </p>
+              <p>Bank Name: <strong>NOMBANK MFB</strong></p>
+              <p>Account Name: <strong>Moniebase LTD</strong></p>
+              <p>
+                <strong>Important:</strong> Include your application ID as
+                payment reference.
+              </p>
+            </div>
+            <div class="upload-receipt">
+              <label for="bank-receipt" class="required-field"
+                >Upload Payment Receipt</label
+              >
+              <div class="upload-area" id="bankReceiptUpload">
+                <i class="fas fa-file-invoice-dollar"></i>
+                <p>Click to upload your bank receipt</p>
+                <p><small>Screenshot or PDF of your bank transfer</small></p>
+                <input
+                  type="file"
+                  id="bank-receipt"
+                  class="file-input"
+                  accept=".pdf,.jpg,.jpeg,.png"
+                />
+              </div>
+              <div class="file-list" id="bankReceiptList"></div>
+            </div>
+            <button type="button" class="btn btn-primary" id="submit-bank">
+              Confirm Payment
+            </button>
+          </div>
+        </div>
+
+        <div class="success-message" id="success-message">
+          <div class="success-icon">
+            <i class="fas fa-check-circle"></i>
+          </div>
+          <h2>Application Submitted Successfully!</h2>
+          <p>
+            Thank you for applying to the Global Scholars Program. Your
+            application and payment is under review. We will review your
+            materials and contact you within 2-3 weeks regarding the next steps
+            in the selection process.
+          </p>
+          <p>
+            For any questions, please contact
+            <a href="mailto:shoppifyinc@gmail.com">shoppifyinc@gmail.com</a>
+          </p>
+          <a href="#home" class="btn btn-primary">Return to Home</a>
+        </div>
+      </div>
+    </section>
+
+    <footer id="contact">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <h3>Global Scholars</h3>
+            <p>
+              Empowering the next generation of global leaders through education
+              and opportunity.
+            </p>
+          </div>
+          <div class="footer-column">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#scholarships">Scholarships</a></li>
+              <li><a href="#application">Application</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Contact Us</h3>
+            <p>
+              <i class="fas fa-map-marker-alt"></i> 1 Kensington Gore, London
+              SW7 2AR, United Kingdom
+            </p>
+
+            <p><i class="fas fa-envelope"></i> shoppifyinc@gmail.com</p>
+          </div>
+          <div class="footer-column">
+            <h3>Newsletter</h3>
+            <p>
+              Subscribe to our newsletter for updates on scholarship
+              opportunities.
+            </p>
+            <form>
+              <div class="form-group">
+                <input type="email" placeholder="Your Email" required />
+              </div>
+              <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2025 Global Scholars Program. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Form navigation
+        const formSteps = document.querySelectorAll(".form-step");
+        const steps = document.querySelectorAll(".step");
+        const progressBar = document.getElementById("progress-bar");
+        const progressContainer = document.getElementById("progress-container");
+        let currentStep = 0;
+
+        // Show first step
+        showStep(currentStep);
+
+        // Next button click handlers
+        document
+          .getElementById("next-1")
+          .addEventListener("click", function () {
+            if (validateStep(0)) {
+              currentStep++;
+              showStep(currentStep);
+              updateProgressBar();
+            }
+          });
+
+        document
+          .getElementById("next-2")
+          .addEventListener("click", function () {
+            if (validateStep(1)) {
+              currentStep++;
+              showStep(currentStep);
+              updateProgressBar();
+            }
+          });
+
+        document
+          .getElementById("next-3")
+          .addEventListener("click", function () {
+            if (validateStep(2)) {
+              currentStep++;
+              showStep(currentStep);
+              updateProgressBar();
+              updateReviewSection();
+            }
+          });
+
+        // Previous button click handlers
+        document
+          .getElementById("prev-2")
+          .addEventListener("click", function () {
+            currentStep--;
+            showStep(currentStep);
+            updateProgressBar();
+          });
+
+        document
+          .getElementById("prev-3")
+          .addEventListener("click", function () {
+            currentStep--;
+            showStep(currentStep);
+            updateProgressBar();
+          });
+
+        document
+          .getElementById("prev-4")
+          .addEventListener("click", function () {
+            currentStep--;
+            showStep(currentStep);
+            updateProgressBar();
+          });
+
+        // Form submission
+        document
+          .getElementById("submit-form")
+          .addEventListener("click", function () {
+            if (validateStep(3)) {
+              document.getElementById("scholarshipForm").style.display = "none";
+              document
+                .getElementById("payment-section")
+                .classList.add("active");
+              progressContainer.style.display = "none";
+            }
+          });
+
+        // Payment method selection
+        document
+          .getElementById("crypto-method")
+          .addEventListener("click", function () {
+            document.querySelectorAll(".payment-method").forEach((method) => {
+              method.classList.remove("selected");
+            });
+            this.classList.add("selected");
+            document.getElementById("bank-details").classList.remove("active");
+            document.getElementById("crypto-details").classList.add("active");
+          });
+
+        document
+          .getElementById("bank-method")
+          .addEventListener("click", function () {
+            document.querySelectorAll(".payment-method").forEach((method) => {
+              method.classList.remove("selected");
+            });
+            this.classList.add("selected");
+            document
+              .getElementById("crypto-details")
+              .classList.remove("active");
+            document.getElementById("bank-details").classList.add("active");
+          });
+
+        // Payment confirmation
+        document
+          .getElementById("submit-crypto")
+          .addEventListener("click", function () {
+            if (validateCryptoPayment()) {
+              completeApplication();
+            }
+          });
+
+        document
+          .getElementById("submit-bank")
+          .addEventListener("click", function () {
+            if (validateBankPayment()) {
+              completeApplication();
+            }
+          });
+
+        // File upload handlers
+        setupFileUpload("transcript", "transcriptUpload", "transcriptList");
+        setupFileUpload(
+          "recommendation",
+          "recommendationUpload",
+          "recommendationList"
+        );
+        setupFileUpload("id", "idUpload", "idList");
+        setupFileUpload("additional", "additionalUpload", "additionalList");
+        setupFileUpload(
+          "crypto-receipt",
+          "cryptoReceiptUpload",
+          "cryptoReceiptList"
+        );
+        setupFileUpload("bank-receipt", "bankReceiptUpload", "bankReceiptList");
+
+        function showStep(stepIndex) {
+          formSteps.forEach((step, index) => {
+            if (index === stepIndex) {
+              step.classList.add("active");
+              steps[index].classList.add("active");
+            } else {
+              step.classList.remove("active");
+              steps[index].classList.remove("active");
+            }
+          });
+
+          // Mark previous steps as completed
+          for (let i = 0; i < stepIndex; i++) {
+            steps[i].classList.add("completed");
+            steps[i].classList.remove("active");
+          }
+        }
+
+        function updateProgressBar() {
+          const percentage = (currentStep / (steps.length - 1)) * 100;
+          progressBar.style.width = `${percentage}%`;
+        }
+
+        function validateStep(stepIndex) {
+          let isValid = true;
+          const currentFormStep = formSteps[stepIndex];
+          const requiredInputs = currentFormStep.querySelectorAll("[required]");
+
+          requiredInputs.forEach((input) => {
+            if (!input.value) {
+              input.style.borderColor = "var(--error)";
+              isValid = false;
+            } else {
+              input.style.borderColor = "";
+            }
+          });
+
+          // Special validation for GPA
+          if (stepIndex === 1) {
+            const gpaInput = document.getElementById("gpa");
+            if (gpaInput.value < 0 || gpaInput.value > 4) {
+              gpaInput.style.borderColor = "var(--error)";
+              isValid = false;
+            }
+          }
+
+          // Special validation for checkbox
+          if (stepIndex === 3) {
+            const agreeCheckbox = document.getElementById("agreeTerms");
+            if (!agreeCheckbox.checked) {
+              agreeCheckbox.nextElementSibling.style.color = "var(--error)";
+              isValid = false;
+            } else {
+              agreeCheckbox.nextElementSibling.style.color = "";
+            }
+          }
+
+          if (!isValid) {
+            alert("Please fill in all required fields correctly.");
+          }
+
+          return isValid;
+        }
+
+        function validateCryptoPayment() {
+          const receiptInput = document.getElementById("crypto-receipt");
+          if (!receiptInput.files || receiptInput.files.length === 0) {
+            alert("Please upload your crypto payment receipt.");
+            return false;
+          }
+          return true;
+        }
+
+        function validateBankPayment() {
+          const receiptInput = document.getElementById("bank-receipt");
+          if (!receiptInput.files || receiptInput.files.length === 0) {
+            alert("Please upload your bank payment receipt.");
+            return false;
+          }
+          return true;
+        }
+
+        function completeApplication() {
+          document.getElementById("payment-section").classList.remove("active");
+          document.getElementById("success-message").classList.add("active");
+        }
+
+        function updateReviewSection() {
+          // Personal Information
+          const personalInfo = `
+                    <p><strong>Name:</strong> ${
+                      document.getElementById("firstName").value
+                    } ${document.getElementById("lastName").value}</p>
+                    <p><strong>Email:</strong> ${
+                      document.getElementById("email").value
+                    }</p>
+                    <p><strong>Phone:</strong> ${
+                      document.getElementById("phone").value
+                    }</p>
+                    <p><strong>Date of Birth:</strong> ${
+                      document.getElementById("dob").value
+                    }</p>
+                    <p><strong>Gender:</strong> ${
+                      document.getElementById("gender").value
+                    }</p>
+                    <p><strong>Address:</strong> ${
+                      document.getElementById("address").value
+                    }</p>
+                    <p><strong>Country:</strong> ${
+                      document.getElementById("country").value
+                    }</p>
+                    <p><strong>Nationality:</strong> ${
+                      document.getElementById("nationality").value
+                    }</p>
+                `;
+          document.getElementById("review-personal").innerHTML = personalInfo;
+
+          // Academic Information
+          const academicInfo = `
+                    <p><strong>Current Education:</strong> ${
+                      document.getElementById("currentEducation").value
+                    }</p>
+                    <p><strong>Institution:</strong> ${
+                      document.getElementById("institution").value
+                    }</p>
+                    <p><strong>Field of Study:</strong> ${
+                      document.getElementById("fieldOfStudy").value
+                    }</p>
+                    <p><strong>GPA:</strong> ${
+                      document.getElementById("gpa").value
+                    }</p>
+                    <p><strong>Program Interest:</strong> ${
+                      document.getElementById("programInterest").value
+                    }</p>
+                    <p><strong>Degree Level:</strong> ${
+                      document.getElementById("degreeLevel").value
+                    }</p>
+                `;
+          document.getElementById("review-academic").innerHTML = academicInfo;
+
+          // Documents
+          let documentsInfo = "";
+          const fileLists = document.querySelectorAll(".file-list");
+          fileLists.forEach((list) => {
+            if (list.innerHTML.trim() !== "") {
+              documentsInfo += `<p><strong>${
+                list.previousElementSibling.querySelector("label").textContent
+              }:</strong> ${list.textContent}</p>`;
+            }
+          });
+          document.getElementById("review-documents").innerHTML =
+            documentsInfo || "<p>No documents uploaded</p>";
+        }
+
+        function setupFileUpload(inputId, uploadAreaId, fileListId) {
+          const fileInput = document.getElementById(inputId);
+          const uploadArea = document.getElementById(uploadAreaId);
+          const fileList = document.getElementById(fileListId);
+
+          uploadArea.addEventListener("click", function () {
+            fileInput.click();
+          });
+
+          fileInput.addEventListener("change", function () {
+            if (this.files && this.files.length > 0) {
+              fileList.innerHTML = "";
+
+              Array.from(this.files).forEach((file) => {
+                const fileItem = document.createElement("div");
+                fileItem.className = "file-item";
+                fileItem.innerHTML = `
+                                <i class="fas fa-file"></i>
+                                <span class="file-name">${file.name}</span>
+                                <span class="file-remove" data-file="${file.name}"><i class="fas fa-times"></i></span>
+                            `;
+                fileList.appendChild(fileItem);
+              });
+
+              // Add remove file functionality
+              fileList.querySelectorAll(".file-remove").forEach((removeBtn) => {
+                removeBtn.addEventListener("click", function () {
+                  const fileName = this.getAttribute("data-file");
+                  // In a real app, you would need to handle the file removal from the FileList
+                  // This is a simplified version
+                  this.parentElement.remove();
+
+                  // Clear the input if all files are removed
+                  if (fileList.children.length === 0) {
+                    fileInput.value = "";
+                  }
+                });
+              });
+            }
+          });
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute("href")).scrollIntoView({
+              behavior: "smooth",
+            });
+          });
+        });
+      });
+
+      function copyToClipboard(elementId) {
+        const element = document.getElementById(elementId);
+        const text = element.textContent;
+
+        navigator.clipboard
+          .writeText(text)
+          .then(() => {
+            // Change button text temporarily
+            const button = element.nextElementSibling;
+            const originalHtml = button.innerHTML;
+            button.innerHTML = '<i class="fas fa-check"></i>Copied';
+
+            setTimeout(() => {
+              button.innerHTML = originalHtml;
+            }, 2000);
+          })
+          .catch((err) => {
+            console.error("Failed to copy text: ", err);
+          });
+      }
+    </script>
+  </body>
+</html>
